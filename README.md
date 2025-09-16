@@ -79,7 +79,7 @@ axmldec com.example.app.apk | xmllint --xpath 'string(/manifest/@package)' -
 
 2. Clone axmldec and its submodule from GitHub:
     ```sh
-    git clone --recursive https://github.com/ytsutano/axmldec.git
+    git clone --recursive https://github.com/SelfRef/axmldec.git
     ```
 
 3. Compile axmldec:
@@ -87,9 +87,10 @@ axmldec com.example.app.apk | xmllint --xpath 'string(/manifest/@package)' -
     cmake -DCMAKE_BUILD_TYPE=Release . && make
     ```
 
-## 5 Developer
+## 5 Developers
 
 - [Yutaka Tsutano] at University of Nebraska-Lincoln.
+- [SelfRef] (fixing build and compatibility)
 
 ## 6 License
 
@@ -103,3 +104,4 @@ axmldec com.example.app.apk | xmllint --xpath 'string(/manifest/@package)' -
 [APK]: https://en.wikipedia.org/wiki/Android_application_package
 [Android App Manifest]: https://developer.android.com/guide/topics/manifest/manifest-intro.html
 [Apktool]: https://ibotpeaches.github.io/Apktool/
+[SelfRef]: https://selfref.dev

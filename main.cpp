@@ -26,7 +26,7 @@
 #include <boost/property_tree/xml_parser.hpp>
 #include <boost/program_options.hpp>
 
-#include <unzip.h>
+#include <compat/unzip.h>
 
 namespace boost_pt = boost::property_tree;
 

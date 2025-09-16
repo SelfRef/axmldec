@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.11)
+cmake_minimum_required(VERSION 3.5)
 
 project(axmldec C CXX)
 set(AXMLDEC_VERSION_MAJOR 1)
@@ -64,18 +64,10 @@ target_link_libraries(axmldec ${Boost_LIBRARIES})
 find_package(ZLIB REQUIRED)
 include_directories(${ZLIB_INCLUDE_DIR})
 
-# MiniZip.
-add_library(minizip STATIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/external/minizip/unzip.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/external/minizip/ioapi.c
-)
-set_target_properties(minizip PROPERTIES
-    COMPILE_DEFINITIONS "NOUNCRYPT;NOCRYPT")
-target_link_libraries(minizip ${ZLIB_LIBRARIES})
-set(MINIZIP_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/external/minizip)
-set(MINIZIP_LIBRARIES minizip)
-include_directories(SYSTEM ${MINIZIP_INCLUDE_DIR})
-target_link_libraries(axmldec ${MINIZIP_LIBRARIES})
+
+# MiniZip-ng: use upstream CMake target for full functionality
+add_subdirectory(external/minizip)
+target_link_libraries(axmldec MINIZIP::minizip)
 
 #-------------------------------------------------------------------------------
 # Install
